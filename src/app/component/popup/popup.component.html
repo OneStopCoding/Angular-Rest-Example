@@ -1,0 +1,76 @@
+<div class="popup-component">
+    <div>
+        <div>
+            <form #serverForm=ngForm (ngSubmit)="saveServer(serverForm)" class="form">
+                <div class="table-title">
+                    <h2 mat-dialog-title class="text-center">Add Server</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div>
+                    <div class="container">
+                        <mat-form-field class="a2">
+                            <div class="form-group ">
+                                <label>IP: </label>
+                                <input matInput ngModel type="text" name="ipAddress" class="form-control a1" required>
+                            </div>
+                        </mat-form-field>
+                        <mat-form-field class="a2">
+                                <div class="form-group ">
+                                    <label>Name: </label>
+                                    <input matInput ngModel type="text" name="name" class="form-control  a1" required>
+                                </div>
+                        </mat-form-field>
+                    </div>
+                    <mat-form-field class="a3">
+                        <div class="col-xl-6 col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>Type: </label>
+                                <select matNativeControl ngModel="OTHER" name="type" class="form-control" required>
+                                    <option value="OTHER">OTHER</option>
+                                    <option value="FILE_SERVER">FILE</option>
+                                    <option value="DATABASE_SERVER">DATABASE</option>
+                                    <option value="MAIL_SERVER">MAIL</option>
+                                    <option value="WEB_SERVER">Web</option>
+                                </select>
+                            </div>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field class="a3">
+                        <div class="col-xl-6 col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>Memory: </label>
+                                <input matInput ngModel type="text" name="memory" class="form-control" required>
+                            </div>
+                        </div>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="a3">
+                        <div class="form-group">
+                            <label>Status: </label>
+                            <select matNativeControl ngModel="SERVER_DOWN" name="status" class="form-control" required>
+                                <option value="ALL">All</option>
+                                <option value="SERVER_UP">Server Up</option>
+                                <option value="SERVER_DOWN">Server Down</option>
+                            </select>
+                        </div>
+
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-dialog-actions align="end">
+                        <button mat-button matDialogClose="yes" type="button" id="closeModal" class="close"
+                                data-dismiss="modal">Cancel
+                        </button>
+                        <button mat-button matDialogClose="no" type="submit" class="btn btn-success"
+                                [disabled]="(isLoading$ | async) || serverForm.invalid">
+                            <i *ngIf="(serverForm.invalid)" class="fas fa-spin fa-spinner"> </i><span
+                                *ngIf="(isLoading$ | async)">...Saving</span>
+                            <span *ngIf="!(serverForm.invalid)">Add</span></button>
+                    </mat-dialog-actions>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

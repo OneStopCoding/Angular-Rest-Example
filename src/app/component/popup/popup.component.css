@@ -1,0 +1,33 @@
+.popup-component{
+    overflow: hidden;
+}
+.form{
+    top: 0;
+    margin-top: -5%;
+}
+.table-title{
+    top: 0;
+    background-color: darkblue;
+    margin-bottom: 2%;
+}
+.table-title h2{
+    width: 100%;
+    color: aliceblue;
+    font-size: 32px;
+}
+.container{
+    width: 100%;
+    display: inline-block;
+}
+.a1{
+    width: 100%;
+}
+.a2{
+    width: 40%;
+    margin-right: 5%;
+}
+
+.a3{
+    width: 30%;
+    margin-right: 3%;
+}
